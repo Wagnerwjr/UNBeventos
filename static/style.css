@@ -1,0 +1,272 @@
+/*
+	@name frame_9
+*/
+/* Only edit this if you know what you are doing! */
+body { margin: 0px; padding: 0px; font-family:"Arial"; overflow-x:hidden; }
+
+/* Only edit this if you know what you are doing! */
+img { position: absolute; display: block; margin: 0px; border: none; padding: 0px; }
+
+/* Only edit this if you know what you are doing! */
+div { position: absolute; }
+
+#content-container { display: block; position: relative; width: 1440px; width: 1440px; height: 1024px; overflow: hidden; display: block;  margin-left: auto; margin-right: auto;  }
+
+#_bg__frame_9 {
+	top: 0px;
+	left: 0px;
+	width: 1440px;
+	height: 1024px;
+	background:#000000;
+}
+
+
+#rectangle_1 {
+	top: 0px;
+	left: 0px;
+	width: 1440px;
+	height: 1024px;
+}
+
+
+#rectangle_2 {
+	top: 0px;
+	left: 0px;
+	width: 1440px;
+	height: 80px;
+}
+
+
+#rectangle_3 {
+	top: 0px;
+	left: 0px;
+	width: 88px;
+	height: 82px;
+	border: 1px solid #000000;
+	background:rgba(122,195,143,1);
+}
+
+
+#union {
+	top: 15px;
+	left: 13px;
+	width: 60px;
+	height: 50px;
+}
+
+
+#rectangle_7 {
+	top: 188px;
+	left: 113px;
+	width: 755px;
+	height: 436px;
+}
+
+
+#teoria_da_relatividade {
+	top: 165px;
+	left: 941px;
+	width: 504.5px;
+	height: 104.5px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 35px;
+	text-align: left;
+	color:#000000;
+}
+
+
+#data__28_01_2023 {
+	top: 289px;
+	left: 941px;
+	width: 215px;
+	height: 42px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 20px;
+	text-align: left;
+	color:#000000;
+}
+
+
+#organizadores__prof__ronaldo_naz_rio_de_lima_prof__edson_arantes {
+	top: 427px;
+	left: 941px;
+	width: 315px;
+	height: 99px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 20px;
+	text-align: left;
+	color:#000000;
+}
+
+
+#categoria__1_palestra_2_ci_ncia_3_fisica {
+	top: 533px;
+	left: 941px;
+	width: 289px;
+	height: 105px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 20px;
+	text-align: left;
+	color:#000000;
+}
+
+
+#local__unb__icc_sul__anf_07_ {
+	top: 348px;
+	left: 941px;
+	width: 333px;
+	height: 72px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 20px;
+	text-align: left;
+	color:#000000;
+}
+
+
+#um_breve_resumo_do_evento__lorem_ipsum_lectus_est_maecenas_laoreet_aliquam_est_amet_iaculis_eget_varius__interdum_suspendisse_dictumst_ligula_vulputate_duis_posuere_at_ante_conubia_netus_semper__varius_vivamus_turpis_ut_euismod_quam_suspendisse_cubilia_aptent_porta__mauris_etiam_suscipit_mattis_sit_aliquam_faucibus_curabitur_sociosqu_nullam_lorem_ad_ac_ante__primis_ligula_pellentesque_congue_lectus_risus_mi_dictum_iaculis_turpis_sollicitudin_odio__donec_fames_per_hendrerit_vestibulum_ligula_primis_dictum_ultricies_pellentesque_integer_lobortis__aliquet_pulvinar_proin_gravida_velit_eu_turpis_imperdiet_duis__diam_netus_euismod_sociosqu_urna_cubilia_potenti__semper_ad_pharetra_sit_nisl_porttitor_praesent_ {
+	top: 701px;
+	left: 124px;
+	width: 1106px;
+	height: 284px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: left;
+	color:#000000;
+}
+
+#rectangle_8_cls_a {
+	top: 915px;
+	left: 1051px;
+	width: 290px;
+	height: 63px;
+	position: absolute;
+}
+
+#rectangle_8_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 290px;
+	height: 63px;
+	background:rgba(122,195,143,1);
+}
+
+
+#inscrever_se {
+	top: 929px;
+	left: 1102px;
+	width: 222px;
+	height: 56px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 30px;
+	text-align: left;
+	color:#FFFFFF;
+}
+
+#unb_eventos_cls_a {
+	top: 5px;
+	left: 157px;
+	width: 415px;
+	height: 78px;
+	position: absolute;
+}
+
+#unb_eventos_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 472px;
+	height: 115px;
+	overflow: hidden;
+	font-family: Atomic Age;
+	font-size: 50px;
+	text-align: left;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: #ffffff;
+	-ms-text-shadow:1px 5px 4px rgba(0,0,0,0.25);
+	-o-text-shadow:1px 5px 4px rgba(0,0,0,0.25);
+	-webkit-text-shadow:1px 5px 4px rgba(0,0,0,0.25);
+	-moz-text-shadow:1px 5px 4px rgba(0,0,0,0.25);
+	text-shadow:1px 5px 4px rgba(0,0,0,0.25);
+	color:#FFFFFF;
+}
+
+#frame_22 {
+	top: 582px;
+	left: 1295px;
+	width: 97px;
+	height: 86px;
+}
+#component_1 {
+	top: 23px;
+	left: 24px;
+	width: 50px;
+	height: 40px;
+}
+
+#rectangle_29 {
+	top: 3px;
+	left: 9px;
+	width: 21.89px;
+	height: 35.02px;
+	-ms-border-radius: 200px;
+	-o-border-radius: 200px;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;
+	border-radius: 200px;
+	
+	-ms-transform:rotate(-44.63deg);
+	-o-transform:rotate(-44.63deg);
+	-webkit-transform:rotate(-44.63deg);
+	-moz-transform:rotate(-44.63deg);
+	transform:rotate(-44.63deg);
+	-ms-box-shadow:0px 4px 4px 1px rgba(0,0,0,0.25);
+	-o-box-shadow:0px 4px 4px 1px rgba(0,0,0,0.25);
+	-webkit-box-shadow:0px 4px 4px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:0px 4px 4px 1px rgba(0,0,0,0.25);
+	box-shadow:0px 4px 4px 1px rgba(0,0,0,0.25);
+	background:rgba(255,255,255,1);
+}
+
+
+#rectangle_30 {
+	top: 3px;
+	left: 19px;
+	width: 21.89px;
+	height: 35.02px;
+	-ms-border-radius: 200px;
+	-o-border-radius: 200px;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;
+	border-radius: 200px;
+	
+	-ms-transform:rotate(44.63deg);
+	-o-transform:rotate(44.63deg);
+	-webkit-transform:rotate(44.63deg);
+	-moz-transform:rotate(44.63deg);
+	transform:rotate(44.63deg);
+	-ms-box-shadow:0px 4px 4px 1px rgba(0,0,0,0.25);
+	-o-box-shadow:0px 4px 4px 1px rgba(0,0,0,0.25);
+	-webkit-box-shadow:0px 4px 4px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:0px 4px 4px 1px rgba(0,0,0,0.25);
+	box-shadow:0px 4px 4px 1px rgba(0,0,0,0.25);
+	background:rgba(255,255,255,1);
+}
+
+
+#_rectangle_47 {
+	top: 10px;
+	left: 1358px;
+	width: 73px;
+	height: 60px;
+}
+
+
+
+/* Add your custom CSS here */
