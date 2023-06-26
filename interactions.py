@@ -1,0 +1,1 @@
+#Arquivo pra criar as interações com o banco de dados i.e. Criar eventos novos, favoritar/desfavoritar eventos, criar os eventos iniciais do site.
