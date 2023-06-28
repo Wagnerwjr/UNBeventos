@@ -21,3 +21,11 @@ def buscar_evento(id):
     evento_json = json.dumps(evento_json)
 
     return evento_json
+
+def buscar_usuario(id):
+    usuario_objeto = session.query(Usuario.id, Usuario.nome).filter(Usuario.id == id).first()
+    usuario_json = []
+    usuario_json.append({"id": usuario_objeto[0], "nome": usuario_objeto[1]})
+    usuario_json = json.dumps(usuario_json)
+
+    return usuario_json

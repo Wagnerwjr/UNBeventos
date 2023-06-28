@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from interactions import buscar_evento
+from interactions import buscar_evento, buscar_usuario
 
 app = Flask(__name__, template_folder='C:/Users/wagner.junior/UNBeventos/templates')
 app._static_folder = 'C:/Users/wagner.junior/UNBeventos/static'
@@ -26,10 +26,11 @@ def cadastrar_evento(id):
     conteudo = buscar_evento(id)
     return render_template('cadastro.html', conteudo = conteudo)
 
-# @app.route('/usuario/<id>')
-# def perfil_usuario(id):
-#     ### buscar no banco id do usuario
-#     return render_template('usuario.html')
+@app.route('/usuario/<id>')
+def perfil_usuario(id):
+    ### buscar no banco id do usuario
+    conteudo = buscar_usuario(id)
+    return render_template('Perfil_Usuario.html', conteudo = conteudo)
 
 @app.route('/confirmacao-evento')
 def confirmar_evento():
