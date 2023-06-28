@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Table, Column, Integer, String, LargeBinary, ForeignKey
 from sqlalchemy.orm import relationship
 from datetime import date, time
+from route import app
 
 db = SQLAlchemy(app)
 
@@ -24,23 +25,23 @@ association_table_categorias = Table(
 
 class Evento(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(80) nullable=False)
-    imagem  = db.Column(db.LargeBinary nullable=True)
-    data = db.Column(db.Date nullable=False)
-    hora = db.Column(db.Time(80) nullable=False)
-    local = db.Column(db.String(80) nullable=False)
-    resumo = db.Column(db.String(1000) nullable=True)
+    nome = db.Column(db.String(80), nullable=False)
+    imagem  = db.Column(db.LargeBinary, nullable=True)
+    data = db.Column(db.Date, nullable=False)
+    hora = db.Column(db.Time(80) ,nullable=False)
+    local = db.Column(db.String(80), nullable=False)
+    resumo = db.Column(db.String(1000), nullable=True)
     organizadores = relationship("Organizadores", secondary=association_table_organizadores, back_populates="eventos")
     categorias = relationship("Categorias", secondary=association_table_categorias, back_populates="eventos")
 
 class Organizadores(db.Model):
     id = db.Column(db.Integer, primary_key=True) 
-    nome = db.Column(db.String(80) nullable=False)
+    nome = db.Column(db.String(80), nullable=False)
     eventos = relationship("Evento", secondary=association_table_organizadores, back_populates="organizadores")
 
 class Categorias(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(80) nullable=False)
+    nome = db.Column(db.String(80), nullable=False)
     eventos = relationship("Evento", secondary=association_table_categorias, back_populates="categorias")
 
 class Favoritos(db.Model):
