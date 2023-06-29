@@ -36,6 +36,12 @@ association_table_categorias = Table(
     db.Column('categoria_id', db.Integer, db.ForeignKey('categorias.id'))
 )
 
+usuario_favoritos = db.Table(
+    'usuario_favoritos',
+    db.Column('usuario_id', db.Integer, db.ForeignKey('usuario.id'), primary_key=True),
+    db.Column('favoritos_id', db.Integer, db.ForeignKey('favoritos.id'), primary_key=True)
+)
+
 class Evento(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(80), nullable=False)
@@ -69,11 +75,10 @@ class EventosCriados(db.Model):
 
 class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(80))
-    matricula = db.Column(db.String(80))
-    curso = db.Column(db.String(80))
-    email = db.Column(db.String(80))
-    foto = db.Column(db.String(80))
+    nome = db.Column(db.String)
+    matricula = db.Column(db.String)
+    curso = db.Column(db.String)
+    email = db.Column(db.String)
+    foto = db.Column(db.String)
+    favoritos = db.relationship('Favoritos', secondary=usuario_favoritos, backref='usuarios')
     
-with app.app_context():
-    db.create_all()
