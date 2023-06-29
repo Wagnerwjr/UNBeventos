@@ -67,3 +67,11 @@ class EventosCriados(db.Model):
     evento_id = db.Column(db.Integer, db.ForeignKey('evento.id'), nullable=False)
     evento = db.relationship('Evento', backref='criados')
 
+class Usuario(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String)
+    matricula = db.Column(db.String)
+    curso = db.Column(db.String)
+    email = db.Column(db.String)
+    foto = db.Column(db.String)
+    
