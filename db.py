@@ -1,8 +1,21 @@
+import flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Table, Column, Integer, String, LargeBinary, ForeignKey
-from sqlalchemy.orm import relationship
-from datetime import date, time
-from route import app
+from sqlalchemy import create_engine, text, Column, Integer, String, DateTime, Numeric, update, inspect, insert,MetaData, Table
+from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy.ext.declarative import declarative_base
+
+
+Base = declarative_base()
+
+engine = create_engine('mysql://root:admin@127.0.0.1:3306/UNBeventos')
+
+Session = sessionmaker(bind=engine)
+
+session = Session()
+app = flask.Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
+app._static_folder = 'C:/Users/Wagner/UNBeventos/static'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:admin@127.0.0.1:3306/UNBeventos'
 
 db = SQLAlchemy(app)
 
@@ -53,6 +66,4 @@ class EventosCriados(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     evento_id = db.Column(db.Integer, db.ForeignKey('evento.id'), nullable=False)
     evento = db.relationship('Evento', backref='criados')
-
-
 

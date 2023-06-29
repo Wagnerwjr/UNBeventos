@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request
 from interactions import buscar_evento, buscar_usuario
 
-app = Flask(__name__, template_folder='C:/Users/wagner.junior/UNBeventos/templates')
-app._static_folder = 'C:/Users/wagner.junior/UNBeventos/static'
+app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
+app._static_folder = 'C:/Users/Wagner/UNBeventos/static'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:admin@127.0.0.1:3306/UNBeventos'
 
