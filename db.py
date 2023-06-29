@@ -19,8 +19,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:admin@127.0.0.1:3306/UNBev
 
 db = SQLAlchemy(app)
 
-with app.app_context():
-    db.create_all()
+
+
 
 association_table_organizadores = Table(
     'association_organizadores',
@@ -69,9 +69,11 @@ class EventosCriados(db.Model):
 
 class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String)
-    matricula = db.Column(db.String)
-    curso = db.Column(db.String)
-    email = db.Column(db.String)
-    foto = db.Column(db.String)
+    nome = db.Column(db.String(80))
+    matricula = db.Column(db.String(80))
+    curso = db.Column(db.String(80))
+    email = db.Column(db.String(80))
+    foto = db.Column(db.String(80))
     
+with app.app_context():
+    db.create_all()
