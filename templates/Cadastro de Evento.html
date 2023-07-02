@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form-v10 by Colorlib</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='montserrat-font.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/material-design-iconic-font/css/material-design-iconic-font.min.css') }}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='Cadastro_de_Evento.css') }}"/>
+	<script src="{{ url_for('static', filename='bootstrap/js/color-modes.js') }}"></script>
+	<link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body class="form-v10">
+  <script src="{{ url_for('static', filename='js/Cadastro de Evento.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="{{ url_for('static', filename='js/Formatar Data.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/Formatar Horario.js') }}"></script>
+
+  <header data-bs-theme="dark">
+	<div class="collapse text-bg-dark" id="navbarHeader">
+	  <div class="container">
+		<div class="row">
+		  <div class="col-sm-8 col-md-7 py-4">
+			<h4>About</h4>
+			<p class="text-body-secondary">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+		  </div>
+		  <div class="col-sm-4 offset-md-1 py-4">
+			<h4>Contact</h4>
+			<ul class="list-unstyled">
+			  <li><a href="#" class="text-white">Follow on Twitter</a></li>
+			  <li><a href="#" class="text-white">Like on Facebook</a></li>
+			  <li><a href="#" class="text-white">Email me</a></li>
+			</ul>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="navbar navbar-light shadow-sm" style="background-color: #7AC38F;">
+	  <div class="container">
+		<a href="#" class="navbar-brand d-flex align-items-center">
+		  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+		  <strong>Album</strong>
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  </div>
+	</div>
+  </header>
+
+	<div class="page-content">
+		<div class="form-v10-content">
+			<form class="form-detail" action="#" method="post" id="myform">
+				<div class="form-left">
+					<h2>Informações Gerais do Evento</h2>
+					<div class="form-row">
+						<input type="text" name="titulo" class="titulo" id="titulo" placeholder="Título" required>
+					</div>
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							<input type="text" name="data" id="data" class="data" placeholder="Data" required>
+						</div>
+						<div class="form-row form-row-2">
+							<input type="text" name="horario" id="horario" class="horario" placeholder="Horário" required>
+						</div>
+					</div>
+					<div class="form-row">
+            <input type="text" name="local" id="local" class="local" placeholder="Local" required>
+          </div>
+					<div class="form-row">
+						<input type="text" name="categorias" class="categorias" id="categorias" placeholder="Categorias" required>
+					</div>
+          <div class="form-row">
+						<input type="text" name="descricao" class="descricao" id="descricao" placeholder="Descrição" required>
+					</div>
+          <div class="form-row-last">
+            <input type="file" name="myFile" class="myFile" id="myFile" hidden/> <br /><br />
+            <label for="myFile" class="myFilee">Escolher Imagem</label>
+            <span class="noFile" id="file-chosen">Nenhum arquivo selecionado</span>
+					</div>
+				</div>
+				<div class="form-right">
+					<h2>Informações do Organizador</h2>
+					<div class="form-row">
+						<input type="text" name="nome" class="nome" id="nome" placeholder="Nome completo" required>
+					</div>
+					<div class="form-row">
+						<input type="text" name="email" id="email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Email">
+					</div>
+					<div class="form-row form-row-2">
+						<input type="text" name="telefone" class="telefone" id="telefone" placeholder="Telefone" required>
+					</div>
+					<div class="form-checkbox">
+						<label class="container"><p>Eu aceito os <a href="#" class="text">Termos e Condições</a> de seu site.</p>
+						  	<input type="checkbox" name="checkbox">
+						  	<span class="checkmark"></span>
+						</label>
+					</div>
+					<div class="form-row-last">
+						<input type="submit" name="register" class="register" value="Registrar Evento">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
