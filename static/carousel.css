@@ -8,6 +8,13 @@ body {
   color: rgb(var(--bs-tertiary-color-rgb));
 }
 
+.navbar.bg-dark {
+  background: #7AC38F;
+}
+
+.container-fluid {
+  background: #7AC38F;
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
