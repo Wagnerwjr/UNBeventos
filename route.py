@@ -1,16 +1,18 @@
 from flask import Flask, render_template, request
-from interactions import buscar_evento, buscar_usuario
+from interactions import buscar_evento, buscar_usuario, novo_evento
 import base64
 
-app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
-app._static_folder = 'C:/Users/Wagner/UNBeventos/static'
+# app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
+# app._static_folder = 'C:/Users/Wagner/UNBeventos/static'
+app = Flask(__name__, template_folder='C:/Users/wagner.junior/UNBeventos/templates')
+app._static_folder = 'C:/Users/wagner.junior/UNBeventos/static'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:admin@127.0.0.1:3306/UNBeventos'
 
 #Pagina inicial
-@app.route("/")
+@app.route("/", methods = ['GET', 'POST'])
 def homepage():
-    return render_template("homepage.html", var = "teste2")
+    return render_template("homepage.html")
 
 
 @app.route('/cadastrar')
@@ -28,12 +30,17 @@ def cadastrar_evento():
     nome = request.form['nome']
     email = request.form['email']
     telefone = request.form['telefone']
-    imagem = request.form['myFile']
-    imagem = base64.b64encode(imagem)
+    imagem = request.files.get('myFile')
     
-    #novo_evento(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem)
-    
+    if imagem is not None:
+        imagem_bin = imagem.read()
+        
+    else:
+        imagem_bin = 0
 
+    print(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem_bin)
+    #novo_evento(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem)
+    return confirmar_evento()
 # @app.route('/evento/<id>')
 # def cadastrar_evento(id):
 #     ### buscar no banco id do evento

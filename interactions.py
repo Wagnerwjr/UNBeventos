@@ -32,9 +32,10 @@ def buscar_usuario(id):
     return usuario_json
 
 
-def novo_evento(titulo, data, horario, local, categorias, descricao, nome, email, telefone):
-    evento = Evento()
-
+def novo_evento(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem_bin):
+    evento = Evento(nome = titulo, imagem = imagem_bin, data = data, hora = horario, local = local, resumo = descricao, organizadores = nome, telefone = telefone, email = email, categorias = categorias )
+    session.add(evento)
+    session.commit()
 
 # def adicionar_usuario(id, nome, matricula, curso, email, foto, id_favorito):
 #     favorito = session.query(Favoritos).filter_by(id == id_favorito).first()

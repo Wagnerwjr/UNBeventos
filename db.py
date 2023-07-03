@@ -43,7 +43,7 @@ usuario_favoritos = db.Table(
 )
 
 class Evento(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(80), nullable=False)
     imagem  = db.Column(db.LargeBinary, nullable=True)
     data = db.Column(db.Date, nullable=False)
@@ -84,3 +84,5 @@ class Usuario(db.Model):
     foto = db.Column(db.String(80))
     favoritos = db.relationship('Favoritos', secondary=usuario_favoritos, backref='usuarios')
     
+app.app_context().push()
+#db.create_all()
