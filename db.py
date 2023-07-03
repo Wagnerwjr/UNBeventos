@@ -50,8 +50,10 @@ class Evento(db.Model):
     hora = db.Column(db.Time(80) ,nullable=False)
     local = db.Column(db.String(80), nullable=False)
     resumo = db.Column(db.String(1000), nullable=True)
-    organizadores = relationship("Organizadores", secondary=association_table_organizadores, back_populates="eventos")
-    categorias = relationship("Categorias", secondary=association_table_categorias, back_populates="eventos")
+    organizadores = db.Column(db.String(80), nullable=False)
+    telefone = db.Column(db.String(80), nullable=False)
+    email = db.Column(db.String(80), nullable=False)
+    categorias = db.Column(db.String(80), nullable=False)
 
 class Organizadores(db.Model):
     id = db.Column(db.Integer, primary_key=True) 

@@ -2,8 +2,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from db import Evento
+from db import Evento, Favoritos, Usuario
 import json
+
 
 Base = declarative_base()
 
@@ -23,9 +24,25 @@ def buscar_evento(id):
     return evento_json
 
 def buscar_usuario(id):
-    usuario_objeto = session.query(Usuario.id, Usuario.nome).filter(Usuario.id == id).first()
+    usuario_objeto = session.query(Usuario.id, Usuario.nome, Usuario.matricula, Usuario.curso, Usuario.email, Usuario.foto, Usuario.favoritos).filter(Usuario.id == id).first()
     usuario_json = []
-    usuario_json.append({"id": usuario_objeto[0], "nome": usuario_objeto[1]})
+    usuario_json.append({"id": usuario_objeto[0], "nome": usuario_objeto[1], })
     usuario_json = json.dumps(usuario_json)
 
     return usuario_json
+
+
+def novo_evento(titulo, data, horario, local, categorias, descricao, nome, email, telefone):
+    evento = Evento()
+
+
+# def adicionar_usuario(id, nome, matricula, curso, email, foto, id_favorito):
+#     favorito = session.query(Favoritos).filter_by(id == id_favorito).first()
+#     user = Usuario(id = id, nome = nome, matricula = matricula, curso = curso, email = email, foto = foto , favoritos = favorito)
+    
+#     session.add(user)
+#     session.commit()
+    
+    
+    
+# adicionar_usuario(1, 'Wagner',  '200044494','Ciencia da computação', '200044494@aluno.unb.br',"00000000" , 1)
