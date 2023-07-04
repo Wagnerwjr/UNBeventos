@@ -4,51 +4,59 @@
   <title>Lista de Favoritos</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 20px;
-    }
-    
-    h1 {
-      text-align: center;
-    }
-    
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    
-    li {
-      background-color: #fff;
-      margin-bottom: 10px;
-      padding: 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-    }
-    
-    li img {
-      margin-right: 10px;
-      width: 50px;
-      height: 50px;
-    }
-    
-    .event-name {
-      font-weight: bold;
-    }
-    
-    .event-info {
-      margin-top: 5px;
-      font-size: 14px;
-      color: #888;
-    }
-    
-    .event-category {
-      font-style: italic;
-    }
+    font-family: Arial, sans-serif;
+    background: #C7EEFF;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background: #7AC38F;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+  }
+  
+  li img {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .event-name {
+    font-weight: bold;
+  }
+  
+  .event-info {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .event-category {
+    font-style: italic;
+  }
+  
   </style>
 </head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='montserrat-font.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/material-design-iconic-font/css/material-design-iconic-font.min.css') }}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='Favoritos.css') }}"/>
+	<script src="{{ url_for('static', filename='bootstrap/js/color-modes.js') }}"></script>
+	<link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 <body>
   <h1>Lista de Favoritos</h1>
   <ul>
@@ -62,29 +70,56 @@
         </div>
         <span class="event-category">Categoria 1</span>
       </div>
+      <button class="view-event-button">Visualizar Evento</button>
     </li>
-    <li>
-      <img src="caminho-da-imagem2.jpg" alt="Imagem 2">
-      <div>
-        <span class="event-name">Evento 2</span>
-        <div class="event-info">
-          <span>Data: 02/07/2023</span>
-          <span>Hora: 14:30</span>
-        </div>
-        <span class="event-category">Categoria 2</span>
-      </div>
-    </li>
-    <li>
-      <img src="caminho-da-imagem3.jpg" alt="Imagem 3">
-      <div>
-        <span class="event-name">Evento 3</span>
-        <div class="event-info">
-          <span>Data: 03/07/2023</span>
-          <span>Hora: 19:00</span>
-        </div>
-        <span class="event-category">Categoria 3</span>
-      </div>
-    </li>
+	<li>
+		<img src="caminho-da-imagem1.jpg" alt="Imagem 1">
+		<div>
+		  <span class="event-name">Evento 1</span>
+		  <div class="event-info">
+			<span>Data: 01/07/2023</span>
+			<span>Hora: 10:00</span>
+		  </div>
+		  <span class="event-category">Categoria 1</span>
+		</div>
+		<button class="view-event-button">Visualizar Evento</button>
+	  </li>
+	  <li>
+		<img src="caminho-da-imagem1.jpg" alt="Imagem 1">
+		<div>
+		  <span class="event-name">Evento 1</span>
+		  <div class="event-info">
+			<span>Data: 01/07/2023</span>
+			<span>Hora: 10:00</span>
+		  </div>
+		  <span class="event-category">Categoria 1</span>
+		</div>
+		<button class="view-event-button">Visualizar Evento</button>
+	  </li>
+	  <li>
+		<img src="caminho-da-imagem1.jpg" alt="Imagem 1">
+		<div>
+		  <span class="event-name">Evento 1</span>
+		  <div class="event-info">
+			<span>Data: 01/07/2023</span>
+			<span>Hora: 10:00</span>
+		  </div>
+		  <span class="event-category">Categoria 1</span>
+		</div>
+		<button class="view-event-button">Visualizar Evento</button>
+	  </li>
+	  <li>
+		<img src="caminho-da-imagem1.jpg" alt="Imagem 1">
+		<div>
+		  <span class="event-name">Evento 1</span>
+		  <div class="event-info">
+			<span>Data: 01/07/2023</span>
+			<span>Hora: 10:00</span>
+		  </div>
+		  <span class="event-category">Categoria 1</span>
+		</div>
+		<button class="view-event-button">Visualizar Evento</button>
+	  </li>
   </ul>
 </body>
 </html>
