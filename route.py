@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request
-from interactions import  buscar_usuario, novo_evento
+from flask import Flask, Response, render_template, request
+from interactions import  buscar_usuario, novo_evento, obter_imagem_do_banco
 import base64
 
 app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
@@ -61,7 +61,22 @@ def confirmar_evento():
 def confirmar_inscricao():
     return render_template("Confirmacao de Inscricao.html")
 
+@app.route('/teste', methods = ['GET'])
+def teste():
+    return render_template("a.html")
 
+@app.route('/imagem/<imagem_id>')
+def exibir_imagem(imagem_id):
+    # Obtenha a imagem do banco de dados usando o ID ou nome
+    imagem = obter_imagem_do_banco(imagem_id)
+    
+    # Verifique se a imagem foi encontrada
+    if imagem is not None:
+        # Retorne a imagem como resposta HTTP com o tipo MIME apropriado
+        return Response(imagem, mimetype='image/jpeg')
+    
+    # Se a imagem não for encontrada, retorne uma imagem padrão ou uma mensagem de erro
+    return "Imagem não encontrada"
 
 # @app.route('/favoritos/<id>')
 # def confirmar_evento(id):

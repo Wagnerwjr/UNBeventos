@@ -47,3 +47,9 @@ def novo_evento(titulo, data, horario, local, categorias, descricao, nome, email
     
     
 # adicionar_usuario(1, 'Wagner',  '200044494','Ciencia da computação', '200044494@aluno.unb.br',"00000000" , 1)
+
+def obter_imagem_do_banco(id):
+    
+    imagem = session.query(Eventos.imagem).filter(id == id).first()
+    print(imagem)
+    return imagem
