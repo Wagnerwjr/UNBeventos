@@ -23,11 +23,11 @@ def login():
         return redirect("/confirmacao-inscricao")
 
 @app.route('/cadastrar')
-def cadatrar_dados():
+def cadatrar_evento():
     return render_template('Cadastro de Evento.html')
 
 @app.route('/cadastrar-dados', methods = ['POST'])
-def cadastrar_evento():
+def cadastrar_dados():
     titulo = request.form['titulo']
     data = request.form['data']
     horario = request.form['horario']
