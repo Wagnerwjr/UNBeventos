@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request
-from interactions import buscar_evento, buscar_usuario, novo_evento
+from interactions import  buscar_usuario, novo_evento
 import base64
 
-# app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
-# app._static_folder = 'C:/Users/Wagner/UNBeventos/static'
-app = Flask(__name__, template_folder='C:/Users/wagner.junior/UNBeventos/templates')
-app._static_folder = 'C:/Users/wagner.junior/UNBeventos/static'
+app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
+app._static_folder = 'C:/Users/Wagner/UNBeventos/static'
+# app = Flask(__name__, template_folder='C:/Users/wagner.junior/UNBeventos/templates')
+# app._static_folder = 'C:/Users/wagner.junior/UNBeventos/static'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:admin@127.0.0.1:3306/UNBeventos'
 
@@ -39,7 +39,7 @@ def cadastrar_evento():
         imagem_bin = 0
 
     print(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem_bin)
-    #novo_evento(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem)
+    novo_evento(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem)
     return confirmar_evento()
 # @app.route('/evento/<id>')
 # def cadastrar_evento(id):

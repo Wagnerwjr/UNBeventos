@@ -20,29 +20,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:admin@127.0.0.1:3306/UNBev
 db = SQLAlchemy(app)
 
 
-
-
-association_table_organizadores = Table(
-    'association_organizadores',
-    db.Model.metadata,
-    db.Column('evento_id', db.Integer, db.ForeignKey('evento.id')),
-    db.Column('organizador_id', db.Integer, db.ForeignKey('organizadores.id'))
-)
-
-association_table_categorias = Table(
-    'association_categorias',
-    db.Model.metadata,
-    db.Column('evento_id', db.Integer, db.ForeignKey('evento.id')),
-    db.Column('categoria_id', db.Integer, db.ForeignKey('categorias.id'))
-)
-
-usuario_favoritos = db.Table(
-    'usuario_favoritos',
-    db.Column('usuario_id', db.Integer, db.ForeignKey('usuario.id'), primary_key=True),
-    db.Column('favoritos_id', db.Integer, db.ForeignKey('favoritos.id'), primary_key=True)
-)
-
-class Evento(db.Model):
+class Eventos(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(80), nullable=False)
     imagem  = db.Column(db.LargeBinary, nullable=True)
@@ -55,25 +33,7 @@ class Evento(db.Model):
     email = db.Column(db.String(80), nullable=False)
     categorias = db.Column(db.String(80), nullable=False)
 
-class Organizadores(db.Model):
-    id = db.Column(db.Integer, primary_key=True) 
-    nome = db.Column(db.String(80), nullable=False)
-    eventos = relationship("Evento", secondary=association_table_organizadores, back_populates="organizadores")
 
-class Categorias(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(80), nullable=False)
-    eventos = relationship("Evento", secondary=association_table_categorias, back_populates="categorias")
-
-class Favoritos(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    evento_id = db.Column(db.Integer, db.ForeignKey('evento.id'), nullable=False)
-    evento = db.relationship('Evento', backref='favoritos')
-
-class EventosCriados(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    evento_id = db.Column(db.Integer, db.ForeignKey('evento.id'), nullable=False)
-    evento = db.relationship('Evento', backref='criados')
 
 class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -82,7 +42,7 @@ class Usuario(db.Model):
     curso = db.Column(db.String(80))
     email = db.Column(db.String(80))
     foto = db.Column(db.String(80))
-    favoritos = db.relationship('Favoritos', secondary=usuario_favoritos, backref='usuarios')
+    
     
 app.app_context().push()
 #db.create_all()

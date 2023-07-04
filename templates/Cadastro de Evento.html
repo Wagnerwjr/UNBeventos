@@ -16,8 +16,7 @@
 <body class="form-v10">
   <script src="{{ url_for('static', filename='js/Cadastro de Evento.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-  <script src="{{ url_for('static', filename='js/Formatar Data.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/Formatar Horario.js') }}"></script>
+  
 
   <header data-bs-theme="dark">
 	<div class="collapse text-bg-dark" id="navbarHeader">
@@ -53,7 +52,7 @@
 
 	<div class="page-content">
 		<div class="form-v10-content">
-			<form class="form-detail" action="/cadastrar-dados" method="post" id="myform">
+			<form class="form-detail" action="/cadastrar-dados" method="post" id="myform" enctype="multipart/form-data">
 				<div class="form-left">
 					<h2>Informações Gerais do Evento</h2>
 					<div class="form-row">
