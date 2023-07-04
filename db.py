@@ -42,7 +42,7 @@ class Usuario(db.Model):
     curso = db.Column(db.String(80))
     email = db.Column(db.String(80))
     foto = db.Column(db.String(80))
-    
+    telefone = db.Column(db.String(80))
     
 app.app_context().push()
 #db.create_all()

@@ -83,9 +83,9 @@ def exibir_imagem(imagem_id):
     # Se a imagem não for encontrada, retorne uma imagem padrão ou uma mensagem de erro
     return "Imagem não encontrada"
 
-# @app.route('/favoritos/<id>')
-# def confirmar_evento(id):
+@app.route('/favoritos')
+def favoritos_pagina():
 
-#     return render_template("favoritos.html")
+    return render_template("Favoritos.html")
 
 app.run()
