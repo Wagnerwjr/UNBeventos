@@ -1,4 +1,4 @@
-from flask import Flask, Response, render_template, request
+from flask import Flask, Response, render_template, request, redirect
 from interactions import  buscar_usuario, novo_evento, obter_imagem_do_banco
 import base64
 
@@ -14,6 +14,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:admin@127.0.0.1:3306/UNBev
 def homepage():
     return render_template("homepage.html")
 
+@app.route('/login', methods=['POST'])
+def login():
+    senha = request.values.get('senha')
+    if senha == 'UNBeventos123':
+        return redirect("/")
+    else:
+        return redirect("/confirmacao-inscricao")
 
 @app.route('/cadastrar')
 def cadatrar_dados():
@@ -47,11 +54,9 @@ def cadastrar_evento():
 #     conteudo = buscar_evento(id)
 #     return render_template('cadastro.html', conteudo = conteudo)
 
-@app.route('/usuario/<id>')
-def perfil_usuario(id):
-    ### buscar no banco id do usuario
-    conteudo = buscar_usuario(id)
-    return render_template('Perfil do Usuario.html', conteudo = conteudo)
+@app.route('/usuario')
+def perfil_usuario():
+    return render_template('Perfil do Usuario.html')
 
 @app.route('/confirmacao-evento')
 def confirmar_evento():
