@@ -1,12 +1,27 @@
 body {
+	background-color: #C7EEFF;
 	margin:  0;
 	height: 100%;
 }
+
+.unb-icon {
+    width: 40px;
+    height: 30px;
+}
+
+.nav_name {
+    color: #000000;
+}
+
+.nav_logo-name {
+    color: #000000;
+}
+
 .page-content {
 	width: 100%;
 	height: 100%;
 	margin:  0 auto;
-	background: #C7EEFF;
+	background-color: #C7EEFF;
 	display: flex;
 	display: -webkit-flex;
 	justify-content: center;
@@ -19,9 +34,6 @@ body {
 	-ms-align-items: center;
 	-moz-align-items: center;
 	-webkit-align-items: center;
-	background-image: -moz-linear-gradient( 136deg, rgb(149,153,226) 0%, rgb(139,198,236) 100%);
-    background-image: -webkit-linear-gradient( 136deg, rgb(149,153,226) 0%, rgb(139,198,236) 100%);
-    background-image: -ms-linear-gradient( 136deg, rgb(149,153,226) 0%, rgb(139,198,236) 100%);
 }
 .form-v10-content  {
 	background: #ffffff;
@@ -423,4 +435,10 @@ body {
 		text-align: center;
 	    margin: 44px 0 30px;
 	}
+}
+
+body {
+	background-color: #C7EEFF;
+	margin:  0;
+	height: 100%;
 }

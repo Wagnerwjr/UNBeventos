@@ -1,9 +1,22 @@
 main {
     background: #C7EEFF;
 }
-.calendar-icon {
+
+body {
+    background: #C7EEFF;
+}
+
+.unb-icon {
     width: 40px;
     height: 30px;
+}
+
+.nav_name {
+    color: #000000;
+}
+
+.nav_logo-name {
+    color: #000000;
 }
 
 #overlay {
