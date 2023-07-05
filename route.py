@@ -21,10 +21,6 @@ def login():
         return redirect("/")
     else:
         return redirect("/confirmacao-inscricao")
-
-@app.route('/favoritos')
-def favotitos():
-    return render_template('Favoritos.html')
     
 @app.route('/cadastrar')
 def cadatrar_evento():
