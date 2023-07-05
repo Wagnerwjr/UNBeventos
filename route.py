@@ -26,6 +26,10 @@ def login():
 def cadatrar_evento():
     return render_template('Cadastro de Evento.html')
 
+@app.route('/criados')
+def criados():
+    return render_template('Eventos Criados.html')
+
 @app.route('/cadastrar-dados', methods = ['POST'])
 def cadastrar_dados():
     titulo = request.form['titulo']
