@@ -110,16 +110,14 @@
 	<div class="page-content">
 		<div class="form-v10-content">
 			<form class="form-detail" action="/login" method="post" id="myform">
-				<div class="form-left">
-					<h2>Título do Evento</h2>
+				<div class="form-left" data-dados = "{{conteudo}}">
+					<h2 id="titulo-evento" >Título do Evento </h2>
                     <div class="grid-container">
                         <div class="e-im-des">
                             <div class="e-im-gen">
                                 <img src="{{ url_for('static', filename='resources/Evento - Relatividade.png') }}" id="e-im" alt="UnB">
                             </div>
-                            <div class="e-des">
-                                <p><b>Um breve resumo:</b></p><p class="desc">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                            </div>
+                            
                         </div>
                         <div class="e-inf">
                             <div class="e-data">
@@ -143,9 +141,43 @@
                                     <p>1. </p>
                                 </div>
                             </div>
+							<div class="e-des">
+                                <p><b>Um breve resumo:</b></p><p class="desc">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+                            </div>
                         </div>
                     </div>
                     
+					<script>
+						// Get the content from the data attribute
+						var conteudo = document.querySelector('.form-left').getAttribute('data-dados');
+						var dados = JSON.parse(conteudo);
+						console.log(dados[0])
+						// Update the title with the content
+						document.getElementById('titulo-evento').innerHTML = dados[0].nome;
+
+						    // Selecionar a div pela classe
+							var divElement = document.querySelector('.e-data');
+
+							// Atualizar o conteúdo da div
+							divElement.innerHTML = '<p><b>Data: </b>'+dados[0].data + '</p>';
+
+
+							var divElement2 = document.querySelector('.e-hora');
+							divElement2.innerHTML = '<p><b>Horário: </b>'+dados[0].hora + '</p>';
+
+							var divElement3 = document.querySelector('.e-local');
+							divElement3.innerHTML = '<p><b>Local: </b>'+dados[0].local + '</p>';
+
+							var divElement4 = document.querySelector('.e-org');
+							divElement4.innerHTML = '<p><b>Local: </b>'+dados[0].organizador + '</p>';
+
+							var divElement5 = document.querySelector('.e-cat');
+							divElement5.innerHTML = '<p><b>Categoria: </b>'+dados[0].categoria + '</p>';
+
+							var divElement6 = document.querySelector('.e-des');
+							divElement6.innerHTML = '<p><b>Descrição: </b>'+dados[0].descricao + '</p>';
+
+					</script>
                     
                     
                     

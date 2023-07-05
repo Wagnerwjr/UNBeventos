@@ -1,11 +1,11 @@
 from flask import Flask, Response, render_template, request, redirect
-from interactions import  buscar_usuario, novo_evento, obter_imagem_do_banco
+from interactions import  buscar_evento, novo_evento, obter_imagem_do_banco
 import base64
 
-app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
-app._static_folder = 'C:/Users/Wagner/UNBeventos/static'
-# app = Flask(__name__, template_folder='C:/Users/wagner.junior/UNBeventos/templates')
-# app._static_folder = 'C:/Users/wagner.junior/UNBeventos/static'
+# app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
+# app._static_folder = 'C:/Users/Wagner/UNBeventos/static'
+app = Flask(__name__, template_folder='C:/Users/wagner.junior/UNBeventos/templates')
+app._static_folder = 'C:/Users/wagner.junior/UNBeventos/static'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:admin@127.0.0.1:3306/UNBeventos'
 
@@ -37,22 +37,24 @@ def cadastrar_dados():
     nome = request.form['nome']
     email = request.form['email']
     telefone = request.form['telefone']
-    imagem = request.files.get('myFile')
+    # imagem = request.files.get('myFile')
     
-    if imagem is not None:
-        imagem_bin = imagem.read()
+    # if imagem is not None:
+    #     imagem_bin = imagem.read()
         
-    else:
-        imagem_bin = 0
-
+    # else:
+    #     imagem_bin = 
+    imagem_bin = 'b'
     print(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem_bin)
-    novo_evento(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem)
+    novo_evento(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem_bin)
     return confirmar_evento()
-# @app.route('/evento/<id>')
-# def cadastrar_evento(id):
-#     ### buscar no banco id do evento
-#     conteudo = buscar_evento(id)
-#     return render_template('cadastro.html', conteudo = conteudo)
+
+@app.route('/evento/<id>', methods = ['GET'])
+def pagina_evento(id):
+    ### buscar no banco id do evento
+    conteudo = buscar_evento(id)
+    print(conteudo)
+    return render_template('Evento Template.html', conteudo = conteudo)
 
 @app.route('/usuario')
 def perfil_usuario():

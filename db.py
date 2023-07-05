@@ -35,6 +35,7 @@ class Eventos(db.Model):
 
 
 
+
 class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(80))
@@ -44,5 +45,5 @@ class Usuario(db.Model):
     foto = db.Column(db.String(80))
     telefone = db.Column(db.String(80))
     
-app.app_context().push()
-#db.create_all()
+# app.app_context().push()
+# db.create_all()

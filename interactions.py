@@ -53,3 +53,14 @@ def obter_imagem_do_banco(id):
     imagem = session.query(Eventos.imagem).filter(id == id).first()
     print(imagem)
     return imagem
+
+def buscar_evento(id):
+    evento_objeto = session.query(Eventos.nome, Eventos.imagem, Eventos.data, Eventos.hora, Eventos.categorias, Eventos.resumo, Eventos.local, Eventos.organizadores).filter(Eventos.id == id).first()
+    pessoa_json = []
+    my_date_string = evento_objeto[2].isoformat()
+    my_time_string = evento_objeto[3].strftime("%H:%M:%S")
+    pessoa_json.append({"nome": evento_objeto[0], "imagem": evento_objeto[1], "data": my_date_string, "hora": my_time_string, "categoria": evento_objeto[4], "descricao": evento_objeto[5], "local": evento_objeto[6], "organizador": evento_objeto[7]})
+    print(pessoa_json)
+    pessoa_json = json.dumps(pessoa_json)
+
+    return pessoa_json
