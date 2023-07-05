@@ -2,10 +2,10 @@ from flask import Flask, Response, render_template, request, redirect
 from interactions import  buscar_evento, novo_evento, obter_imagem_do_banco
 import base64
 
-# app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
-# app._static_folder = 'C:/Users/Wagner/UNBeventos/static'
-app = Flask(__name__, template_folder='C:/Users/wagner.junior/UNBeventos/templates')
-app._static_folder = 'C:/Users/wagner.junior/UNBeventos/static'
+app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
+app._static_folder = 'C:/Users/Wagner/UNBeventos/static'
+# app = Flask(__name__, template_folder='C:/Users/wagner.junior/UNBeventos/templates')
+# app._static_folder = 'C:/Users/wagner.junior/UNBeventos/static'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:admin@127.0.0.1:3306/UNBeventos'
 
