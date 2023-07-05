@@ -73,7 +73,7 @@ body {
 }
 
 .form-v10-content .form-detail .form-left h2 {
-    position: relative;
+    position: absolute;
     left: 570px;
     top: 70px;
 	color: #000000;
@@ -99,30 +99,30 @@ body {
 
 
 .form-v10-content .form-detail .form-left .grid-container .e-im-des .e-im-gen {
-    position: relative;
+    position: absolute;
     transform: scale(0.75);
-    right: 70px;
-    bottom: 150px;
+    right: 870px;
+    bottom: 450px;
 }
 
 .form-v10-content .form-detail .form-left .grid-container .e-im-des .e-des {
-    position: relative;
+    position: absolute;
     left: 60px;
     bottom: 120px;
 }
 .desc {
     position: relative;
     left: 10px;
-    bottom: 10px;
+    top: 100px;
 }
 
 
 
 
 .form-v10-content .form-detail .form-left .grid-container .e-inf {
-    position: relative;
-    right: 80px;
-    bottom: 60px;
+    position: absolute;
+    right: 140px;
+    bottom: 360px;
 	color: #000000;
 }
 
@@ -143,7 +143,7 @@ body {
 
 .form-v10-content .form-detail .form-left .grid-container .e-inf .e-cat {
     position: relative;
-    top: 90px;
+    top: 60px;
 }
 
 .e-num {
