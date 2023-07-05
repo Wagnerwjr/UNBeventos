@@ -23,7 +23,7 @@ db = SQLAlchemy(app)
 class Eventos(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(80), nullable=False)
-    imagem  = db.Column(db.LargeBinary, nullable=True)
+    imagem  = db.Column(db.LargeBinary(1000000000), nullable=True)
     data = db.Column(db.Date, nullable=False)
     hora = db.Column(db.Time(80) ,nullable=False)
     local = db.Column(db.String(80), nullable=False)
@@ -45,5 +45,5 @@ class Usuario(db.Model):
     foto = db.Column(db.String(80))
     telefone = db.Column(db.String(80))
     
-# app.app_context().push()
-# db.create_all()
+app.app_context().push()
+db.create_all()

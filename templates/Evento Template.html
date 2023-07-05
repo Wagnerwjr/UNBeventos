@@ -115,7 +115,7 @@
                     <div class="grid-container">
                         <div class="e-im-des">
                             <div class="e-im-gen">
-                                <img src="{{ url_for('static', filename='resources/Evento - Relatividade.png') }}" id="e-im" alt="UnB">
+                                 <img src="data:image/png;base64,{{ conteudo[0]['imagem'] }}" alt="Imagem do Evento">
                             </div>
                             
                         </div>
@@ -176,6 +176,9 @@
 
 							var divElement6 = document.querySelector('.e-des');
 							divElement6.innerHTML = '<p><b>Descrição: </b>'+dados[0].descricao + '</p>';
+
+							var divElement7 = document.querySelector('.e-im-gen');
+							divElement7.innerHTML ='<img src="data:image/png;base64,'+dados[0].imagem + '" alt="Imagem do Evento">';
 
 					</script>
                     

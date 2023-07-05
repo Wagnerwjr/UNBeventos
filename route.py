@@ -37,23 +37,25 @@ def cadastrar_dados():
     nome = request.form['nome']
     email = request.form['email']
     telefone = request.form['telefone']
-    # imagem = request.files.get('myFile')
+    imagem = request.files.get('myFile')
     
-    # if imagem is not None:
-    #     imagem_bin = imagem.read()
+    if imagem is not None:
+        imagem_bytes = imagem.read()
+
+        # Codificar a imagem em base64
+        imagem_base64 = base64.b64encode(imagem_bytes)
         
-    # else:
-    #     imagem_bin = 
-    imagem_bin = 'b'
-    print(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem_bin)
-    novo_evento(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem_bin)
+    else:
+        imagem_base64 = 0
+    
+    novo_evento(titulo, data, horario, local, categorias, descricao, nome, email, telefone, imagem_base64)
     return confirmar_evento()
 
 @app.route('/evento/<id>', methods = ['GET'])
 def pagina_evento(id):
     ### buscar no banco id do evento
     conteudo = buscar_evento(id)
-    print(conteudo)
+    
     return render_template('Evento Template.html', conteudo = conteudo)
 
 @app.route('/usuario')
