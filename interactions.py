@@ -68,3 +68,32 @@ def buscar_evento(id):
     pessoa_json = json.dumps(pessoa_json)
 
     return pessoa_json
+
+def buscar_todos():
+    eventos_objetos = session.query(Eventos.id,Eventos.nome, Eventos.imagem, Eventos.data, Eventos.hora, Eventos.categorias, Eventos.resumo, Eventos.local, Eventos.organizadores).all()
+    eventos_json = []
+
+    for evento_objeto in eventos_objetos:
+        my_date_string = evento_objeto[3].isoformat()
+        my_time_string = evento_objeto[4].strftime("%H:%M:%S")
+        if evento_objeto[2] is not None:
+            my_string = evento_objeto[2].decode('utf-8')
+        else:
+            my_string = ''
+
+        evento_json = {
+            "id": evento_objeto[0],
+            "nome": evento_objeto[1],
+            "imagem": my_string,
+            "data": my_date_string,
+            "hora": my_time_string,
+            "categoria": evento_objeto[5],
+            "descricao": evento_objeto[6],
+            "local": evento_objeto[7],
+            "organizador": evento_objeto[8]
+        }
+
+        eventos_json.append(evento_json)
+
+    eventos_json = json.dumps(eventos_json)
+    return eventos_json

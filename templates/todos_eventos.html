@@ -95,96 +95,88 @@ li img {
 
 
 </head>
-<body>
-  <h1>Lista de Favoritos</h1>
-  <ul>
-    <li>
-      
-      <div>
-        <span class="event-name">Sustentabilidade</span>
-        <div class="event-info">
-          <span>Data: 11/07/2023</span>
-          <span>Hora: 10:00</span>
-        </div>
-        <span class="event-category">Categoria: Palestra</span>
-      </div>
-      <button class="view-event-button">Visualizar Evento</button>
-    </li>
-    <li>
-      
-      <div>
-        <span class="event-name">Robótica aplicada</span>
-        <div class="event-info">
-          <span>Data: 13/07/2023</span>
-          <span>Hora: 08:30</span>
-        </div>
-        <span class="event-category">Categoria: Workshop</span>
-      </div>
-      <button class="view-event-button">Visualizar Evento</button>
-    </li>
-    <li>
-      
-      <div>
-        <span class="event-name">Mecânica industrial</span>
-        <div class="event-info">
-          <span>Data: 16/07/2023</span>
-          <span>Hora: 16:00</span>
-        </div>
-        <span class="event-category">Categoria: Palestra</span>
-      </div>
-      <button class="view-event-button">Visualizar Evento</button>
-    </li>
-    <li>
-      
-      <div>
-        <span class="event-name">Modelagem 3D</span>
-        <div class="event-info">
-          <span>Data: 16/07/2023</span>
-          <span>Hora: 9:40</span>
-        </div>
-        <span class="event-category">Categoria: Palestra</span>
-      </div>
-      <button class="view-event-button">Visualizar Evento</button>
-    </li>
-    <li>
-      
-      <div>
-        <span class="event-name">Engenharia e seus conceitos</span>
-        <div class="event-info">
-          <span>Data: 18/07/2023</span>
-          <span>Hora: 19:00</span>
-        </div>
-        <span class="event-category">Categoria: Palestra</span>
-      </div>
-      <button class="view-event-button">Visualizar Evento</button>
-    </li>
-    <li>
-      
-      <div>
-        <span class="event-name">Telecomunicações e internet</span>
-        <div class="event-info">
-          <span>Data: 19/07/2023</span>
-          <span>Hora: 14:00</span>
-        </div>
-        <span class="event-category">Categoria: Palestra</span>
-      </div>
-      <button class="view-event-button">Visualizar Evento</button>
-    </li>
-    <li>
-      
-      <div>
-        <span class="event-name">Física nuclear e o meio ambiente</span>
-        <div class="event-info">
-          <span>Data: 01/08/2023</span>
-          <span>Hora: 15:00</span>
-        </div>
-        <span class="event-category">Categoria: Palesta</span>
-      </div>
-      <button class="view-event-button">Visualizar Evento</button>
-    </li>
+<body id="dados" data-dados="{{ conteudo }}">
+  <h1>Todos os eventos</h1>
+  <ul id="event-list">
 
     <!-- Os outros eventos com o botão "Visualizar Evento" -->
   </ul>
+
+<script>
+    function adicionarLiRecursivo(ulElement, eventos) {
+  // Verifica se existem eventos para adicionar
+  if (eventos.length === 0) {
+    return; // Caso não haja mais eventos, encerra a recursão
+  }
+  
+  // Pega o primeiro evento da lista
+  var evento = eventos[0];
+  
+  // Cria os elementos HTML
+  var liElement = document.createElement("li");
+  var divElement = document.createElement("div");
+  var spanNomeElement = document.createElement("span");
+  var divInfoElement = document.createElement("div");
+  var spanDataElement = document.createElement("span");
+  var spanHoraElement = document.createElement("span");
+  var spanCategoriaElement = document.createElement("span");
+  var buttonElement = document.createElement("button");
+  
+
+  buttonElement.addEventListener("click", function() {
+      // Obtém o ID do evento a partir do atributo "data-id"
+      var eventoId = evento.id;
+      
+      // Redireciona o usuário para a rota "/evento/<id>"
+      window.location.href = "/evento/" + eventoId;
+    });
+  // Adiciona as classes aos elementos
+  liElement.className = "event-item";
+  divElement.className = "event-details";
+  spanNomeElement.className = "event-name";
+  divInfoElement.className = "event-info";
+  spanDataElement.className = "event-date";
+  spanHoraElement.className = "event-time";
+  spanCategoriaElement.className = "event-category";
+  buttonElement.className = "view-event-button";
+  
+  // Define o texto dos elementos
+  spanNomeElement.textContent = evento.nome;
+  spanDataElement.textContent = "Data: " + evento.data;
+  spanHoraElement.textContent = "Hora: " + evento.hora;
+  spanCategoriaElement.textContent = "Categoria: " + evento.categoria;
+  buttonElement.textContent = "Visualizar Evento";
+  
+  // Adiciona os elementos ao DOM
+  ulElement.appendChild(liElement);
+  liElement.appendChild(divElement);
+  divElement.appendChild(spanNomeElement);
+  divElement.appendChild(divInfoElement);
+  divInfoElement.appendChild(spanDataElement);
+  divInfoElement.appendChild(spanHoraElement);
+  divElement.appendChild(spanCategoriaElement);
+  liElement.appendChild(buttonElement);
+  
+  // Remove o evento adicionado da lista
+  eventos.shift();
+  
+  // Chama a função recursivamente para adicionar os próximos eventos
+  adicionarLiRecursivo(ulElement, eventos);
+}
+
+var dadosJsonString = document.getElementById('dados').dataset.dados;
+var eventos = JSON.parse(dadosJsonString);
+console.log(eventos)
+
+// Pega o elemento <ul> do DOM
+var ulElement = document.getElementById("event-list");
+
+// Chama a função para adicionar os <li> recursivamente
+adicionarLiRecursivo(ulElement, eventos);
+</script>
+
+
+
 </body>
 <body class="form-v10" style="background-color: #C7EEFF;">
 <body className='snippet-body'>

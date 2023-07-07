@@ -1,5 +1,5 @@
 from flask import Flask, Response, render_template, request, redirect
-from interactions import  buscar_evento, novo_evento, obter_imagem_do_banco
+from interactions import  buscar_evento, novo_evento, obter_imagem_do_banco, buscar_todos
 import base64
 
 app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
@@ -90,6 +90,13 @@ def exibir_imagem(imagem_id):
     
     # Se a imagem não for encontrada, retorne uma imagem padrão ou uma mensagem de erro
     return "Imagem não encontrada"
+
+@app.route('/todos', methods = ['GET'])
+def pagina_todos():
+    eventos = buscar_todos()
+
+    return render_template('todos_eventos.html', conteudo = eventos) 
+
 
 @app.route('/favoritos')
 def favoritos_pagina():
