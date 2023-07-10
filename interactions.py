@@ -2,7 +2,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from db import Eventos,Usuario
+from db import Eventos,Usuario, incricao
 import json
 import base64
 
@@ -56,14 +56,14 @@ def obter_imagem_do_banco(id):
     return imagem
 
 def buscar_evento(id):
-    evento_objeto = session.query(Eventos.nome, Eventos.imagem, Eventos.data, Eventos.hora, Eventos.categorias, Eventos.resumo, Eventos.local, Eventos.organizadores).filter(Eventos.id == id).first()
+    evento_objeto = session.query(Eventos.nome, Eventos.imagem, Eventos.data, Eventos.hora, Eventos.categorias, Eventos.resumo, Eventos.local, Eventos.organizadores, Eventos.id).filter(Eventos.id == id).first()
     pessoa_json = []
     #print(evento_objeto[1])
     my_date_string = evento_objeto[2].isoformat()
     my_time_string = evento_objeto[3].strftime("%H:%M:%S")
     my_string = evento_objeto[1].decode('utf-8')
     
-    pessoa_json.append({"nome": evento_objeto[0], "imagem": my_string, "data": my_date_string, "hora": my_time_string, "categoria": evento_objeto[4], "descricao": evento_objeto[5], "local": evento_objeto[6], "organizador": evento_objeto[7]})
+    pessoa_json.append({"nome": evento_objeto[0], "imagem": my_string, "data": my_date_string, "hora": my_time_string, "categoria": evento_objeto[4], "descricao": evento_objeto[5], "local": evento_objeto[6], "organizador": evento_objeto[7], "id":evento_objeto[8]})
     
     pessoa_json = json.dumps(pessoa_json)
 
@@ -97,3 +97,23 @@ def buscar_todos():
 
     eventos_json = json.dumps(eventos_json)
     return eventos_json
+
+def inscricao(dados):
+    pessoa = incricao(nome = dados['nome'], id_evento = dados['id_evento'])
+    session.add(pessoa)
+    session.commit()
+
+def inscritos_todos():
+    inscritos_objetos = session.query(incricao.nome, incricao.id_evento).all()
+    inscritos_json = []
+
+    for inscrito_objeto in inscritos_objetos:
+        inscrito_json = {
+            "nome": inscrito_objeto[0],
+            "id_evento": inscrito_objeto[1]
+        }
+
+        inscritos_json.append(inscrito_json)
+
+    inscritos_json = json.dumps(inscritos_json)
+    return inscritos_json

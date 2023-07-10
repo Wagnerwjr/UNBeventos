@@ -151,7 +151,28 @@
 							<button class="btn btn-primary botao-fixo" onclick="redirectToConfirmation()">Inscrever-se</button>
 							<script>
 								function redirectToConfirmation() {
-									window.location.href = "/confirmacao-inscricao";
+									var dadosEvento = {
+										id_evento: dados[0].id,
+										nome: dados[0].nome
+										};
+
+										
+										// Cria uma solicitação POST para enviar os dados ao Flask
+										var xhr = new XMLHttpRequest();
+										xhr.open("POST", "/confirmacao", true);
+										xhr.setRequestHeader("Content-Type", "application/json");
+
+										xhr.onreadystatechange = function() {
+										if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+											console.log("JSON enviado com sucesso");
+										}
+										};
+
+										// Envia o JSON como corpo da solicitação
+										xhr.send(JSON.stringify(dadosEvento));
+
+										// Redireciona o usuário para a rota "/confirmacao"
+										window.location.href = "/confirmacao-inscricao";
 								}
 							</script>
 							<style>

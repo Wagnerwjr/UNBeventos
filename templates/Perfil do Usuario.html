@@ -168,7 +168,7 @@ body {
                 </div>
             </div>
             <div class="col-md-7 ps-md-4">
-                <div class="row">
+                <div class="row" id ="dados" data-dados="{{ conteudo }}">
                     <div class="col-12 bg-white px-3 mb-3 pb-3">
                         <div class="d-flex align-items-center justify-content-between border-bottom">
                             <p class="py-2">Nome Completo</p>
@@ -197,23 +197,18 @@ body {
                       </div>
                       
                       <script>
-                        // Exemplo de JSON com ID e nome do evento
-                        var jsonEventos = [
-                          { "id": 1, "nome": "sustentabilidade" },
-                          { "id": 2, "nome": "Evento 2" },
-                          { "id": 3, "nome": "Evento 3" },
-                          { "id": 4, "nome": "Evento 4" },
-                          { "id": 5, "nome": "Evento 5" }
-                        ];
-                      
-                        var eventosDiv = document.getElementById("eventos");
-                        for (var i = 0; i < jsonEventos.length; i++) {
-                          var evento = jsonEventos[i];
-                          eventosDiv.innerHTML += `
-                            <small>${evento.nome}</small>
-                            <div class="d-flex align-items-center justify-content-between border-bottom" style="height: 5px"></div>
-                          `;
-                        }
+                      var dadosJsonString = document.getElementById('dados').dataset.dados;
+                        var jsonEventos = JSON.parse(dadosJsonString);
+                      console.log(jsonEventos)
+    var eventosDiv = document.getElementById("eventos");
+
+    for (var i = 0; i < jsonEventos.length; i++) {
+        var evento = jsonEventos[i];
+        eventosDiv.innerHTML += `
+            <small>${evento.nome}</small>
+            <div class="d-flex align-items-center justify-content-between border-bottom" style="height: 5px"></div>
+        `;
+    }
                       </script>
                 </div>
             </div>

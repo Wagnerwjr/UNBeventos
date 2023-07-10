@@ -1,5 +1,5 @@
 from flask import Flask, Response, render_template, request, redirect
-from interactions import  buscar_evento, novo_evento, obter_imagem_do_banco, buscar_todos
+from interactions import  buscar_evento, novo_evento, obter_imagem_do_banco, buscar_todos, inscricao, inscritos_todos
 import base64
 
 # app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
@@ -64,7 +64,8 @@ def pagina_evento(id):
 
 @app.route('/usuario')
 def perfil_usuario():
-    return render_template('Perfil do Usuario.html')
+    dados = inscritos_todos()
+    return render_template('Perfil do Usuario.html', conteudo = dados)
 
 @app.route('/confirmacao-evento')
 def confirmar_evento():
@@ -79,13 +80,7 @@ def confirmar_inscricao():
 def confirmacao_inscricao():
     dados_json = request.get_json()
 
-    # Acessar os dados recebidos
-    evento_id = dados_json["id"]
-    evento_nome = dados_json["nome"]
-
-    # Fazer algo com os dados recebidos
-    print("ID do evento:", evento_id)
-    print("Nome do evento:", evento_nome)
+    inscricao(dados_json)
 
     # Retornar uma resposta adequada
     return "Dados do evento recebidos com sucesso!"
