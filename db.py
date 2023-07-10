@@ -44,6 +44,12 @@ class Usuario(db.Model):
     email = db.Column(db.String(80))
     foto = db.Column(db.String(80))
     telefone = db.Column(db.String(80))
-    
+
+
+class incricao(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(80))
+    id_evento = db.Column(db.Integer)
+
 app.app_context().push()
 db.create_all()

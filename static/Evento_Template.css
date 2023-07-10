@@ -73,7 +73,7 @@ body {
 }
 
 .form-v10-content .form-detail .form-left h2 {
-    position: absolute;
+    position: relative;
     left: 570px;
     top: 70px;
 	color: #000000;
@@ -99,30 +99,30 @@ body {
 
 
 .form-v10-content .form-detail .form-left .grid-container .e-im-des .e-im-gen {
-    position: absolute;
+    position: relative;
     transform: scale(0.75);
-    right: 870px;
-    bottom: 450px;
+    right: 70px;
+    bottom: 150px;
 }
 
 .form-v10-content .form-detail .form-left .grid-container .e-im-des .e-des {
-    position: absolute;
+    position: relative;
     left: 60px;
     bottom: 120px;
 }
 .desc {
     position: relative;
     left: 10px;
-    top: 100px;
+    bottom: 10px;
 }
 
 
 
 
 .form-v10-content .form-detail .form-left .grid-container .e-inf {
-    position: absolute;
-    right: 140px;
-    bottom: 360px;
+    position: relative;
+    right: 80px;
+    bottom: 60px;
 	color: #000000;
 }
 
@@ -143,7 +143,7 @@ body {
 
 .form-v10-content .form-detail .form-left .grid-container .e-inf .e-cat {
     position: relative;
-    top: 60px;
+    top: 90px;
 }
 
 .e-num {
@@ -415,7 +415,7 @@ body {
 	.form-v10-content .form-detail .form-left .form-group .form-row.form-row-4 .select-btn {
 		right: 15%;
 	}
-	
+
 	.form-v10-content .form-detail .form-checkbox {
 		padding: 0 30px;
 	}
@@ -456,3 +456,21 @@ body {
 	font-weight: 700;
 	font-size: 20px;
 }
+.e-local{
+	margin-top: -40px;
+}
+.e-org{
+	margin-top: -50px;
+}
+.e-cat{
+	margin-top: -40px;
+}
+.e-des{
+	margin-top: 95px;
+}
+
+.botao-fixo {
+    position: absolute;
+    bottom: 150px;
+    right: 0px;
+  }

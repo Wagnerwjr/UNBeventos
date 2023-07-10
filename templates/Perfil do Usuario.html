@@ -192,29 +192,29 @@ body {
                         </div>
                     </div>
                     <div class="col-12 bg-white px-3 pb-2">
-                        <h6 class="d-flex align-items-center mb-3 fw-bold py-3"><i
-                                class="text-info me-2">Eventos em que estou inscrito</i></h6>
-                        <small>Evento 1</small>
-                        <div class="d-flex align-items-center justify-content-between border-bottom" style="height: 5px">
-                            <div class="btn btn-primary follow me-2 botao-de-visualizacao">Favoritos</div>
-                        </div>
-                        <small>Evento 2</small>
-                        <div class="d-flex align-items-center justify-content-between border-bottom" style="height: 5px">
-
-                        </div>
-                        <small>Evento 3</small>
-                        <div class="d-flex align-items-center justify-content-between border-bottom" style="height: 5px">
-
-                        </div>
-                        <small>Evento 4</small>
-                        <div class="d-flex align-items-center justify-content-between border-bottom" style="height: 5px">
-  
-                        </div>
-                        <small>Evento 5</small>
-                        <div class="d-flex align-items-center justify-content-between border-bottom" style="height: 5px">
-
-                        </div>
-                    </div>
+                        <h6 class="d-flex align-items-center mb-3 fw-bold py-3"><i class="text-info me-2">Eventos em que estou inscrito</i></h6>
+                        <div id="eventos"></div>
+                      </div>
+                      
+                      <script>
+                        // Exemplo de JSON com ID e nome do evento
+                        var jsonEventos = [
+                          { "id": 1, "nome": "sustentabilidade" },
+                          { "id": 2, "nome": "Evento 2" },
+                          { "id": 3, "nome": "Evento 3" },
+                          { "id": 4, "nome": "Evento 4" },
+                          { "id": 5, "nome": "Evento 5" }
+                        ];
+                      
+                        var eventosDiv = document.getElementById("eventos");
+                        for (var i = 0; i < jsonEventos.length; i++) {
+                          var evento = jsonEventos[i];
+                          eventosDiv.innerHTML += `
+                            <small>${evento.nome}</small>
+                            <div class="d-flex align-items-center justify-content-between border-bottom" style="height: 5px"></div>
+                          `;
+                        }
+                      </script>
                 </div>
             </div>
         </div>

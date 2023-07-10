@@ -2,10 +2,10 @@ from flask import Flask, Response, render_template, request, redirect
 from interactions import  buscar_evento, novo_evento, obter_imagem_do_banco, buscar_todos
 import base64
 
-app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
-app._static_folder = 'C:/Users/Wagner/UNBeventos/static'
-# app = Flask(__name__, template_folder='C:/Users/wagner.junior/UNBeventos/templates')
-# app._static_folder = 'C:/Users/wagner.junior/UNBeventos/static'
+# app = Flask(__name__, template_folder='C:/Users/Wagner/UNBeventos/templates')
+# app._static_folder = 'C:/Users/Wagner/UNBeventos/static'
+app = Flask(__name__, template_folder='C:/Users/wagner.junior/UNBeventos/templates')
+app._static_folder = 'C:/Users/wagner.junior/UNBeventos/static'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:admin@127.0.0.1:3306/UNBeventos'
 
@@ -72,7 +72,23 @@ def confirmar_evento():
 
 @app.route('/confirmacao-inscricao')
 def confirmar_inscricao():
+
     return render_template("Confirmacao de Inscricao.html")
+
+@app.route("/confirmacao", methods=["POST"])
+def confirmacao_inscricao():
+    dados_json = request.get_json()
+
+    # Acessar os dados recebidos
+    evento_id = dados_json["id"]
+    evento_nome = dados_json["nome"]
+
+    # Fazer algo com os dados recebidos
+    print("ID do evento:", evento_id)
+    print("Nome do evento:", evento_nome)
+
+    # Retornar uma resposta adequada
+    return "Dados do evento recebidos com sucesso!"
 
 @app.route('/teste', methods = ['GET'])
 def teste():

@@ -119,7 +119,7 @@
                     <div class="grid-container">
                         <div class="e-im-des">
                             <div class="e-im-gen">
-                                 <img src="data:image/png;base64,{{ conteudo[0]['imagem'] }}" alt="Imagem do Evento">
+                                 <img src="data:image/png;base64,{{ conteudo[0]['imagem'] }}" alt="Imagem do Evento" class="evento-imagem">
                             </div>
                             
                         </div>
@@ -146,12 +146,12 @@
                                 </div>
                             </div>
 							<div class="e-des">
-                                <p><b>Um breve resumo:</b></p><p class="desc">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+                                <p><b>Um breve resumo:</b></p><p class="desc"></p>
                             </div>
-							<button class="btn btn-primary" onclick="redirectToConfirmation()">Inscrever-se</button>
+							<button class="btn btn-primary botao-fixo" onclick="redirectToConfirmation()">Inscrever-se</button>
 							<script>
 								function redirectToConfirmation() {
-									window.location.href = "/confirmacao";
+									window.location.href = "/confirmacao-inscricao";
 								}
 							</script>
 							<style>
